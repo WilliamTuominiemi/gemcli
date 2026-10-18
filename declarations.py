@@ -1,22 +1,21 @@
-ask_declaration = {
+from pathlib import Path
+
+read_file_declaration = {
     "type": "function",
-    "name": "ask",
-    "description": "Answers a question about code",
+    "name": "read_file",
+    "description": "Reads the contents of a file from disk",
     "parameters": {
         "type": "object",
         "properties": {
-            "code": {
+            "file_path": {
                 "type": "string",
-                "description": "The input code"
+                "description": "Path to the file to read",
             },
-            "question": {
-                "type": "string",
-                "description": "The question that is asked about the code"
-            }
         },
-        "required": ["code", "question"],
-    }
+        "required": ["file_path"],
+    },
 }
 
-def ask(code: str, question: str) -> dict:
-    return {"code": code, "question": question}
+
+def read_file(file_path: str) -> dict:
+    return {"content": Path(file_path).read_text(encoding="utf-8")}
