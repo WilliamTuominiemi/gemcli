@@ -31,4 +31,7 @@ GEMINI_API_KEY="api_key"
 
 ```
 gemcli ask "test.py" "what datatype is variable a"
+gemcli edit "test.py" "flip the logic of variables a and b"
 ```
+
+`edit` shows a colored diff of the proposed changes and asks `Apply changes? (y/N)` before writing to disk.
